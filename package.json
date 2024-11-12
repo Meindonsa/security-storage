@@ -1,6 +1,6 @@
 {
   "name": "@meindonsa/security-storage",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "crypto-js": "^4.2.0"
+    "crypto-js": "^4.2.0",
+    "lz-string": "^1.5.0"
   }
 }

@@ -1,5 +1,6 @@
 export declare class SecurityStorage {
     constructor();
-    getBaseKey(): string;
+    getBaseKey(data: any): string;
+    private encrypt;
     private generateRandomKey;
 }
