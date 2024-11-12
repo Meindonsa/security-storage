@@ -1,8 +1,9 @@
+import {Constant} from "./constant";
 
 export class SecurityStorage {
     constructor() {}
 
-    calculate(first: number, second: number){
-        return first+second;
+    getBaseKey(){
+        return Constant.base_key;
     }
 }
