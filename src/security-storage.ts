@@ -1,15 +1,18 @@
 import {Constant} from "./constant";
 import {enc, lib, AES,mode,pad} from "crypto-js";
-// @ts-ignore
-import * as LZString from "lz-string";
+import {compressToUTF16, decompressFromUTF16 } from "lz-string";
 
 export class SecurityStorage {
     constructor() {}
 
-    getBaseKey(data:any): string{
+    set(key: string, data:any): any{
         return this.encrypt(data, Constant.base_key);
+        //localStorage.setItem(key,encryptedData);
     }
 
+    get(key:string){
+        return localStorage.getItem(key);
+    }
 
     private encrypt(data: any, secretKey: string): string {
         try {
@@ -18,7 +21,7 @@ export class SecurityStorage {
                 mode: mode.CBC,
                 padding: pad.Pkcs7,
             }).toString();
-            return LZString.compressToUTF16(encryptedData);
+            return compressToUTF16(encryptedData);
         } catch (error) {
             console.error("Encryption error:", error);
             throw error;
