@@ -1,6 +1,6 @@
 {
   "name": "@meindonsa/security-storage",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "",
   "main": "dist/index.js",
   "scripts": {

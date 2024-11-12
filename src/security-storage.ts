@@ -1,20 +1,65 @@
 import {Constant} from "./constant";
-import {enc, lib, AES,mode,pad} from "crypto-js";
-import {compressToUTF16, decompressFromUTF16 } from "lz-string";
+import {enc, lib, AES, mode, pad} from "crypto-js";
+import {compressToUTF16, decompressFromUTF16} from "lz-string";
 
+interface MetaData{
+    _keyStr:string,
+    array: Map<string,string>;
+}
 export class SecurityStorage {
-    constructor() {}
+    private metaData:MetaData|any=null;
 
-    set(key: string, data:any): void{
-        let encryptedData = this.encrypt(data, Constant.base_key);
-        localStorage.setItem(key,encryptedData);
+    constructor() {
+        this.init();
     }
 
-    get(key:string):any |null{
-        return localStorage.getItem(key);
+    private init():void{
+        let encrypted:string|null =  localStorage.getItem(Constant.keys_name);
+        if(encrypted==null){
+            this.metaData = {
+                _keyStr: this.generateRandomKey(),
+                array: new Map<string,string>,
+            };
+            const encrypted: any = this.encrypt(this.metaData, Constant.base_key);
+            if (encrypted) localStorage.setItem(Constant.keys_name, encrypted)
+        }
     }
 
-    private encrypt(data: any, secretKey: string): string {
+    private _get_meta() {
+        const object: any|null = localStorage.getItem(Constant.keys_name);
+        if (object==null)
+            this.init();
+
+        this.metaData = this.decrypt(object, Constant.base_key);
+    }
+
+    public set(key: string, data: any): void {
+        this._get_meta();
+        const data_key = this.generateRandomKey();
+        let keys = this.metaData.array;
+        keys.set(key,data_key);
+
+        let encryptedData:string = this.encrypt(data, Constant.base_key);
+        localStorage.setItem(key, encryptedData);
+    }
+
+    public get(key: string): any | null {
+        let data: any = localStorage.getItem(key)
+        if (data != null) {
+            return this.decrypt(data, Constant.base_key);
+        }
+        return null;
+    }
+
+    public remove(key: string) {
+        localStorage.removeItem(key);
+    }
+
+    public clean(): void {
+        localStorage.clear();
+    }
+
+    private encrypt(data: string | any, secretKey: string): string {
         try {
             const encryptedData = AES.encrypt(JSON.stringify(data), secretKey, {
                 keySize: 256 / 32,
@@ -28,7 +73,8 @@ export class SecurityStorage {
         }
     }
 
-    private decrypt(encryptedData: string, secretKey: string): any {
+    private decrypt(encryptedData: string | null, secretKey: string): any {
+        if(encryptedData==null) return null;
         try {
             const decompressedData = decompressFromUTF16(encryptedData);
             if (!decompressedData) {
