@@ -41,6 +41,9 @@ export class SecurityStorage {
     }
 
     public set(key: string, data: any): void {
+        if(this.checkValue(key,"key")) return;
+        if(this.checkValue(data,"data")) return;
+
         this._get_meta();
         const data_key = this.generateRandomKey();
         this.metaData.array[key] = data_key;
@@ -51,6 +54,7 @@ export class SecurityStorage {
     }
 
     public get(key: string): any | null {
+        if(this.checkValue(key,"key")) return;
         this._get_meta();
         let data: any | null = localStorage.getItem(key)
         if (data == null) return null;
@@ -62,6 +66,7 @@ export class SecurityStorage {
     }
 
     public remove(key: string) {
+        if(this.checkValue(key,"key")) return;
         this._get_meta();
         delete this.metaData.array[key];
         this.encryptMetaData(this.metaData);
@@ -74,6 +79,12 @@ export class SecurityStorage {
         this.metaData.array={};
         this.encryptMetaData(this.metaData);
         localStorage.clear();
+    }
+
+    private checkValue(value:string, key:string){
+        let isUndefined:boolean = value == null || value.trim()=="";
+        if(isUndefined) console.error(`${key} cannot be null`);
+        return isUndefined;
     }
 
     private encrypt(data: string | any, secretKey: string): string {
