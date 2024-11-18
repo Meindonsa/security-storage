@@ -32,7 +32,7 @@ then, you can use differents methods of service:
 
 - set
 
-Encrypt your data and saves it in specified key and in localStorage. If the key is not provided, the library will warn. Following types of JavaScript objects are supported: `Array`, `Blob`,`Float`,`Number`, `Object` ,`String`
+`set` encrypts your data and saves it in specified key and in localStorage. If the key is not provided, the library will warn. Following types of JavaScript objects are supported: `Array`, `Blob`,`Float`,`Number`, `Object` ,`String`
 
 | Parameter               | Description                        |
 | :---------------------- | :--------------------------------- |
@@ -43,7 +43,7 @@ Encrypt your data and saves it in specified key and in localStorage. If the key 
 
 - get
 
-Gets data back from specified key from the localStorage library. If the key is not provided, the library will warn.
+`get` gets data back from specified key from the localStorage library. If the key is not provided, the library will warn.
 
 | Parameter               | Description                        |
 | :---------------------- | :--------------------------------- |
@@ -54,7 +54,7 @@ Gets data back from specified key from the localStorage library. If the key is n
 
 - remove
 
-Removes the value of a key from the localStorage.
+`remove` removes the value of a key from the localStorage.
 
 | Parameter | Description                                          |
 | :-------- | :--------------------------------------------------- |
@@ -62,9 +62,9 @@ Removes the value of a key from the localStorage.
 
 ###
 
-- remove all
+- clean
 
-Removes all data from the localStorage, this method don't take parameter
+`clean` remove all your data from the localStorage, this method don't take parameter
 
 ### Example
 
@@ -90,7 +90,7 @@ remove() {
 }
 
 removeAll() {
-    this.securityStorage.remove();
+    this.securityStorage.clean();
 }
 
 ```
