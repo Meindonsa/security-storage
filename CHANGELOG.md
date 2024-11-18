@@ -1,5 +1,11 @@
 
 
+## [0.0.2](https://github.com/Meindonsa/security-storage/compare/0.2.0...0.0.2) (2024-11-18)
+
+### Bug Fixes
+
+* Push 0.0.2 version ([5f1f759](https://github.com/Meindonsa/security-storage/commit/5f1f7595fc3d1737474175db197088afff782464))
+
 ## 0.2.0 (2024-11-18)
 
 ### Features
