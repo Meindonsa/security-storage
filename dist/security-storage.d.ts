@@ -8,6 +8,7 @@ export declare class SecurityStorage {
     get(key: string): any | null;
     remove(key: string): void;
     clean(): void;
+    private checkValue;
     private encrypt;
     private decrypt;
     private generateRandomKey;
