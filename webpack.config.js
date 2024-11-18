@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'web-storage.js',
+        filename: 'index.js',
         library: 'SecurityStorage',
         libraryTarget: 'umd',
         globalObject: 'this',
