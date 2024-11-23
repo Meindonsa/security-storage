@@ -2,10 +2,10 @@
 - Décrypt ✅
 - metadata ✅
 - set [
-    - Generate key
-    - Set key in array
-    - Save metadata
-    - Save data to localStorage
+    - Generate key ✅
+    - Set key in array ✅
+    - Save metadata ✅
+    - Save data to localStorage ✅
 ]
 
 - get [ ... ]
