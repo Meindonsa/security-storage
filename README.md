@@ -14,7 +14,7 @@ Library use `Crypto-js` to encrypt you data, `Lz-string` to compress data encryp
 ## Installation
 
 ```bash
-npm @meindonsa/security-storage --save
+npm install meindonsa/security-storage --save
 ```
 
 ## Usage
