@@ -1,10 +1,11 @@
 const path = require('path');
+const os = require('os');
 
 module.exports = {
     entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js',
+        filename: 'security-storage.js',
         library: 'SecurityStorage',
         libraryTarget: 'umd',
         globalObject: 'this',
@@ -21,7 +22,16 @@ module.exports = {
                         loader: 'babel-loader',
                     },
                     {
+                        loader: 'thread-loader',
+                        options: {
+                            workers: os.cpus().length - 1,
+                        },
+                    },
+                    {
                         loader: 'ts-loader',
+                        options: {
+                            configFile: 'tsconfig.json'
+                        }
                     },
                 ],
                 exclude: /node_modules/,
@@ -29,4 +39,5 @@ module.exports = {
         ],
     },
     mode: 'production',
+    devtool: 'source-map',
 };
