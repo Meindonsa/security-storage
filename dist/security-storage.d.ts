@@ -1,10 +1,15 @@
 export declare class SecurityStorage {
     private metaData;
+    private cache;
+    private batchQueue;
     constructor();
     private init;
-    private _get_meta;
     private encryptMetaData;
     set(key: string, data: any): void;
+    setBatch(data: {
+        [key: string]: any;
+    }): void;
+    saveBatch(): void;
     get(key: string): any | null;
     remove(key: string): void;
     clean(): void;
@@ -13,4 +18,3 @@ export declare class SecurityStorage {
     private decrypt;
     private generateRandomKey;
 }
-export default SecurityStorage;
