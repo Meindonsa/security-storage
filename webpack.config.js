@@ -1,5 +1,4 @@
 const path = require('path');
-const os = require('os');
 
 module.exports = {
     entry: './src/index.ts',
@@ -20,12 +19,6 @@ module.exports = {
                 use: [
                     {
                         loader: 'babel-loader',
-                    },
-                    {
-                        loader: 'thread-loader',
-                        options: {
-                            workers: os.cpus().length - 1,
-                        },
                     },
                     {
                         loader: 'ts-loader',
