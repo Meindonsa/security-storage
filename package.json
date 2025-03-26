@@ -1,8 +1,8 @@
 {
   "name": "@meindonsa/security-storage",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/security-storage.js",
   "scripts": {
     "build": "webpack",
     "clean": "rm -rf dist",
