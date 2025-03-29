@@ -18,7 +18,6 @@ class SecurityStorage {
     init() {
         let encrypted = localStorage.getItem(Constant.keys_name);
         if (encrypted == null) {
-            console.log("IS NULL");
             this.metaStore = {
                 _keyStr: this.generateRandomKey(),
                 array: {},
@@ -32,7 +31,6 @@ class SecurityStorage {
         }
     }
     encryptMetaData(data) {
-        console.log("META", data);
         const encrypted = this.encrypt(data, this.encryptionKey);
         localStorage.setItem(Constant.keys_name, encrypted);
     }
