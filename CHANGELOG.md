@@ -1,4 +1,26 @@
+# Changelog
 
+## [0.3.18](https://github.com/Meindonsa/security-storage/compare/0.0.2...0.3.0) (2025-03-29)
+
+### ⚠ BREAKING CHANGES
+
+* Improve environment
+
+### Features
+
+* Fixed indexing issue ([312f91e](https://github.com/Meindonsa/security-storage/commit/312f91e5467b57e1c2c8da491d631be17dc7ecf1))
+* Improve environment ([701ad0f](https://github.com/Meindonsa/security-storage/commit/701ad0f480f6f8bdd770b3015ab2c776cccebee6))
+## [0.3.0](https://github.com/Meindonsa/security-storage/compare/0.0.2...0.3.0) (2025-01-30)
+
+### Features
+
+* Improve library ([e22acd3](https://github.com/Meindonsa/security-storage/commit/e22acd397e4c8713c087cacfcec046064a25e449))
+* push 0.3.0 code ([31da098](https://github.com/Meindonsa/security-storage/commit/31da098445e453ca2094d45d6cadf2c05e5e92aa))
+
+### Bug Fixes
+
+* Remove '..gitignore' copy ([b846fb7](https://github.com/Meindonsa/security-storage/commit/b846fb7a959004ad52e1ade80b4ca2e757a83ab3))
+* Remove 'thread-loader' from dependances ([dbf15e5](https://github.com/Meindonsa/security-storage/commit/dbf15e5904d2581f67b1b47182d00fe4006e1ed9))
 
 ## [0.3.0](https://github.com/Meindonsa/security-storage/compare/0.2.0...0.0.2) (2025-01-30)
 
