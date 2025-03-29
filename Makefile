@@ -3,7 +3,7 @@ build :
 	npm run build
 
 clean :
-	npm run clean
+	rm -rf dist
 
 prepare : clean build
 

@@ -1,24 +1,32 @@
 {
   "name": "@meindonsa/security-storage",
-  "version": "0.3.1",
+  "version": "0.3.18",
   "description": "",
-  "main": "dist/security-storage.js",
+  "type": "module",
+  "main": "dist/securityStorage.umd.js",
+  "module": "dist/securityStorage.esm.js",
+  "types": "dist/securityStorage.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/securityStorage.esm.js",
+      "require": "./dist/securityStorage.umd.js",
+      "types": "./dist/securityStorage.d.ts"
+    }
+  },
   "scripts": {
-    "build": "webpack",
-    "clean": "rm -rf dist",
-    "prepare": "npm run clean && npm run build"
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "@release-it/conventional-changelog": "^9.0.2",
+    "@release-it/conventional-changelog": "^10.0.0",
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-node-resolve": "^15.3.1",
+    "@rollup/plugin-typescript": "^11.1.0",
     "@types/crypto-js": "^4.2.2",
-    "babel-loader": "^9.2.1",
-    "release-it": "^17.10.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.6.3",
-    "webpack": "^5.96.1",
-    "webpack-cli": "^5.1.4"
+    "release-it": "^18.1.2",
+    "rollup": "^4.0.0",
+    "tslib": "^2.6.0",
+    "typescript": "^5.6.3"
   },
   "repository": {
     "type": "git",
