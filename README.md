@@ -25,14 +25,14 @@ npm install meindonsa/security-storage --save
 import SecurityStorage from "@meindonsa/security-storage";
 ...
 
-securityStorage = new SecurityStorage();
+securityStorage = new SecurityStorage(/* your custom encryption key or not */);
 ```
 
 then, you can use differents methods of service:
 
 - set
 
-`set` encrypts your data and saves it in specified key and in localStorage. If the key is not provided, the library will warn. Following types of JavaScript objects are supported: `Array`, `Blob`,`Float`,`Number`, `Object` ,`String`
+`setItem` encrypts your data and saves it in specified key and in localStorage. If the key is not provided, the library will warn. Following types of JavaScript objects are supported: `Array`, `Blob`,`Float`,`Number`, `Object` ,`String`
 
 | Parameter               | Description                        |
 | :---------------------- | :--------------------------------- |
@@ -43,18 +43,17 @@ then, you can use differents methods of service:
 
 - get
 
-`get` gets data back from specified key from the localStorage library. If the key is not provided, the library will warn.
+`getItem` gets data back from specified key from the localStorage library. If the key is not provided, the library will warn.
 
 | Parameter               | Description                        |
 | :---------------------- | :--------------------------------- |
 | `key`                   | key to get data from localStorage  |
-| `encryption_secret_key` | your key used to decrypt your data |
 
 ###
 
 - remove
 
-`remove` removes the value of a key from the localStorage.
+`removeItem` removes the value of a key from the localStorage.
 
 | Parameter | Description                                          |
 | :-------- | :--------------------------------------------------- |
@@ -75,21 +74,21 @@ eg :
 import SecurityStorage from "@meindonsa/security-storage";
 ...
 
-securityStorage = new SecurityStorage();
+securityStorage = new SecurityStorage(/*your ecryption key or not */);
 
-saveData() {
+setItem() {
     this.securityStorage.set(key, data);
 }
 
-getData() {
+getItem() {
     return this.securityStorage.get(key);
 }
 
-remove() {
+removeItem() {
     this.securityStorage.remove(key);
 }
 
-removeAll() {
+clear() {
     this.securityStorage.clean();
 }
 
